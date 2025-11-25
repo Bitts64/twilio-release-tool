@@ -24,9 +24,9 @@
     "url": "https://github.com/twilio/release-tool.git"
   },
   "dependencies": {
+    "@inquirer/prompts": "^8.0.1",
     "colors": "^1.1.2",
     "commander": "^2.9.0",
-    "inquirer": "^0.11.0",
     "semver": "^5.1.0"
   },
   "devDependencies": {
