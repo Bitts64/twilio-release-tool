@@ -1,5 +1,4 @@
-release-tool
-============
+# release-tool
 
 [![NPM](https://img.shields.io/npm/v/twilio-release-tool.svg)](https://www.npmjs.com/package/twilio-release-tool) [![Build Status](https://api.travis-ci.com/twilio/release-tool.svg?branch=master)](https://travis-ci.com/github/twilio/release-tool)
 
@@ -7,21 +6,21 @@ release-tool is a tool for releasing software. It supports bumping version
 numbers in JavaScript projects out-of-the-box, but is otherwise generic enough
 to release any kind of software.
 
-```
+``` powershell | bash
 npm install --save-dev release-tool
 ```
 
-Usage
------
+## Usage
 
 By default, the tool runs in an interactive mode. It will prompt you for the
 version numbers and plans you want to execute before confirming whether or not
 to proceed.
 
+``` powershell | bash
+./node_modules/.bin/release --help
 ```
-$ ./node_modules/.bin/release --help
 
-  Usage: release [Options...] [CURRENT_VERSION] [RELEASE_VERSION|NEXT_VERSION] \
+Usage: release [Options...] [CURRENT_VERSION] [RELEASE_VERSION|NEXT_VERSION] \
              [DEVELOPMENT_VERSION]
 
   release is a tool for releasing software. It supports bumping version numbers
@@ -33,7 +32,7 @@ $ ./node_modules/.bin/release --help
 
   Options:
 
-    -h, --help             output usage information
+  -h, --help             output usage information
     -V, --version          output the version number
     -b, --branch [branch]  the branch to release from (defaults to the current branch)
     --bump                 bump CURRENT_VERSION to NEXT_VERSION
@@ -43,8 +42,6 @@ $ ./node_modules/.bin/release --help
     -t, --token            assign the CI token to use
     -x, --execute          execute the plans (defaults to true unless using Travis CI)
 
-```
-
 ### --bump
 
 The tool also bundles a "bump" subcommand for updating version numbers in
@@ -52,12 +49,13 @@ supported types of software projects (currently only JavaScript). It will bump
 the version number in package.json (and bower.json, if it exists) from version
 `CURRENT_VERSION` to version `NEXT_VERSION`:
 
-```
-$ ./node_modules/.bin/release --bump ${CURRENT_VERSION} ${NEXT_VERSION}
+``` powershell | bash
+
+./node_modules/.bin/release --bump ${CURRENT_VERSION} ${NEXT_VERSION}
+
 ```
 
-.release.json
--------------
+## .release.json
 
 The tool executes up to three types of plans on your Software:
 
@@ -72,7 +70,6 @@ For example, the tool's own [.release.json](.release.json) specifies that, in
 order to create a Release, the version number must be bumped before committing
 and tagging the software. In order to continue a Development Version, the
 version number must be bumped before committing the Software.
-
 
 ```json
 {
@@ -123,8 +120,7 @@ unassigned variables referenced in a plan's commands can be overridden by the
 environment or command-line arguments. All other assigned variables are fixed
 and cannot be overridden except in the .release.json itself.
 
-Travis CI Or CircleCI
----------
+## Travis CI Or CircleCI
 
 If you set the property `ci` to `travis` , `circleci` or `travis-pro` in the
 top-level of your software's .release.json, then the tool will not execute any
