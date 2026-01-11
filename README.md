@@ -72,7 +72,7 @@ version number must be bumped before committing the Software.
 ```json
 {
   "type": "JavaScript",
-  "ci": "circleci",
+  "ci": "github",
   "slug": "twilio/release-tool",
   "env": {
     "GH_REF": "github.com/twilio/release-tool.git"
